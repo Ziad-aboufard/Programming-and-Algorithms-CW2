@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "Build Server",
+          "type": "shell",
+          "command": "g++",
+          "args": [
+              "-g",                              // Generates debug information to use with GDB
+              "${file}",                         // This variable is the path to the file currently open in the editor
+              "-o",                              // Option to specify the output file
+              "${fileDirname}\\${fileBasenameNoExtension}.exe", // Outputs the executable in the same directory as the source file with .exe extension
+              "-lws2_32"                         // Link with the Winsock library, necessary for network operations
+          ],
+          "group": {
+              "kind": "build",
+              "isDefault": true                 // Makes this build task the default when pressing Ctrl+Shift+B
+          },
+          "problemMatcher": [
+              "$gcc"                             // Use the GCC problem matcher to parse GCC's output for errors and warnings
+          ],
+          "detail": "Task generated for building the server application."
+      }
+  ]
+}
